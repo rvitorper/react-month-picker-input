@@ -22336,7 +22336,9 @@ module.exports = ReactDOMInvalidARIAHook;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_input_mask__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calendar__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__utils__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__styles_index_css__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__styles_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__styles_index_css__);
 var __extends = (this && this.__extends) || (function () {
@@ -22370,15 +22372,15 @@ var MonthPickerInput = /** @class */ (function (_super) {
     function MonthPickerInput(props) {
         var _this = _super.call(this, props) || this;
         _this.onCalendarChange = function (year, month) {
-            var inputValue = Object(__WEBPACK_IMPORTED_MODULE_3__utils__["b" /* valuesToMask */])(month, year);
+            var inputValue = Object(__WEBPACK_IMPORTED_MODULE_3__utils__["valuesToMask"])(month, year);
             _this.setState({ inputValue: inputValue, year: year, month: month });
             _this.onChange(inputValue, year, month);
         };
         _this.onInputChange = function (e) {
             var mask = e.target.value;
             if (mask.length && mask.indexOf('_') === -1) {
-                var _a = Object(__WEBPACK_IMPORTED_MODULE_3__utils__["a" /* valuesFromMask */])(mask), month = _a[0], year = _a[1];
-                var inputValue = Object(__WEBPACK_IMPORTED_MODULE_3__utils__["b" /* valuesToMask */])(month, year);
+                var _a = Object(__WEBPACK_IMPORTED_MODULE_3__utils__["valuesFromMask"])(mask), month = _a[0], year = _a[1];
+                var inputValue = Object(__WEBPACK_IMPORTED_MODULE_3__utils__["valuesToMask"])(month, year);
                 _this.setState({ year: year, month: month, inputValue: inputValue });
                 _this.onChange(inputValue, year, month);
             }
@@ -22406,7 +22408,7 @@ var MonthPickerInput = /** @class */ (function (_super) {
         _this.calendar = function () {
             var _a = _this.state, year = _a.year, month = _a.month;
             return (__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { style: { position: 'relative' } },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__calendar__["a" /* default */], { year: year, month: month, onChange: _this.onCalendarChange, onOutsideClick: _this.onCalendarOutsideClick })));
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__calendar___default.a, { year: year, month: month, onChange: _this.onCalendarChange, onOutsideClick: _this.onCalendarOutsideClick })));
         };
         _this.inputProps = function () {
             return Object.assign({}, {
@@ -22414,6 +22416,7 @@ var MonthPickerInput = /** @class */ (function (_super) {
                     _this.input = input; },
                 mask: "99/99",
                 placeholder: DATE_FORMAT,
+                className: "calendar-input-field",
                 type: 'text',
                 onBlur: _this.onInputBlur,
                 onFocus: _this.onInputFocus,
@@ -22423,7 +22426,7 @@ var MonthPickerInput = /** @class */ (function (_super) {
         var _a = _this.props, year = _a.year, month = _a.month;
         var inputValue = '';
         if (typeof year == 'number' && typeof month == 'number') {
-            inputValue = Object(__WEBPACK_IMPORTED_MODULE_3__utils__["b" /* valuesToMask */])(month, year);
+            inputValue = Object(__WEBPACK_IMPORTED_MODULE_3__utils__["valuesToMask"])(month, year);
         }
         _this.state = {
             year: year,
@@ -22437,7 +22440,7 @@ var MonthPickerInput = /** @class */ (function (_super) {
     MonthPickerInput.prototype.render = function () {
         var _this = this;
         var _a = this.state, inputValue = _a.inputValue, showCalendar = _a.showCalendar;
-        return (__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { ref: function (wrap) { if (wrap)
+        return (__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "calendar-input-wrapper", ref: function (wrap) { if (wrap)
                 _this.wrapper = wrap; } },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_input_mask__["a" /* default */], __assign({ value: inputValue }, this.inputProps())),
             showCalendar && this.calendar()));
@@ -23340,12 +23343,13 @@ function getInsertStringLength(maskOptions, value, insertStr, insertPos) {
 
 /***/ }),
 /* 192 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MonthCalendar__ = __webpack_require__(193);
 
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__MonthCalendar__["a" /* default */]);
+Object.defineProperty(exports, "__esModule", { value: true });
+var MonthCalendar_1 = __webpack_require__(193);
+exports.default = MonthCalendar_1.default;
 
 
 /***/ }),
@@ -23353,11 +23357,13 @@ function getInsertStringLength(maskOptions, value, insertStr, insertPos) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__OutsideClickWrapper__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Head__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__constants__);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -23382,7 +23388,7 @@ var MonthCalendar = /** @class */ (function (_super) {
             }
         };
         _this.selectYear = function (selectedYear) {
-            _this.setState({ selectedYear: selectedYear, currentView: __WEBPACK_IMPORTED_MODULE_3__constants__["b" /* VIEW_MONTHS */] });
+            _this.setState({ selectedYear: selectedYear, currentView: __WEBPACK_IMPORTED_MODULE_3__constants__["VIEW_MONTHS"] });
             _this.onChange(selectedYear, _this.state.selectedMonth);
         };
         _this.selectMonth = function (selectedMonth) {
@@ -23399,14 +23405,14 @@ var MonthCalendar = /** @class */ (function (_super) {
         };
         _this.updateYears = function (startYear) {
             var years = Array.from({ length: 12 }, function (v, k) { return k + startYear; });
-            _this.setState({ years: years, currentView: __WEBPACK_IMPORTED_MODULE_3__constants__["c" /* VIEW_YEARS */] });
+            _this.setState({ years: years, currentView: __WEBPACK_IMPORTED_MODULE_3__constants__["VIEW_YEARS"] });
         };
         _this.isYears = function () {
-            return _this.state.currentView === __WEBPACK_IMPORTED_MODULE_3__constants__["c" /* VIEW_YEARS */];
+            return _this.state.currentView === __WEBPACK_IMPORTED_MODULE_3__constants__["VIEW_YEARS"];
         };
         _this.renderMonths = function () {
             var selectedMonth = _this.state.selectedMonth;
-            return __WEBPACK_IMPORTED_MODULE_3__constants__["a" /* MONTHS_NAMES */].map(function (month, index) {
+            return __WEBPACK_IMPORTED_MODULE_3__constants__["MONTHS_NAMES"].map(function (month, index) {
                 var selectedKlass = selectedMonth === index ? 'selected_cell' : '';
                 return (__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { key: index, onClick: function () { return _this.selectMonth(index); }, className: "col_mp span_1_of_3_mp " + selectedKlass }, month));
             });
@@ -23424,7 +23430,7 @@ var MonthCalendar = /** @class */ (function (_super) {
             years: Array.from({ length: 12 }, function (v, k) { return k + startYear; }),
             selectedYear: year,
             selectedMonth: month,
-            currentView: year ? __WEBPACK_IMPORTED_MODULE_3__constants__["b" /* VIEW_MONTHS */] : __WEBPACK_IMPORTED_MODULE_3__constants__["c" /* VIEW_YEARS */],
+            currentView: year ? __WEBPACK_IMPORTED_MODULE_3__constants__["VIEW_MONTHS"] : __WEBPACK_IMPORTED_MODULE_3__constants__["VIEW_YEARS"],
         };
         return _this;
     }
@@ -23437,7 +23443,7 @@ var MonthCalendar = /** @class */ (function (_super) {
             this.setState({
                 selectedYear: year,
                 selectedMonth: month,
-                currentView: __WEBPACK_IMPORTED_MODULE_3__constants__["b" /* VIEW_MONTHS */]
+                currentView: __WEBPACK_IMPORTED_MODULE_3__constants__["VIEW_MONTHS"]
             });
         }
     };
@@ -23445,13 +23451,13 @@ var MonthCalendar = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.state, selectedYear = _a.selectedYear, selectedMonth = _a.selectedMonth;
         return (__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__OutsideClickWrapper__["a" /* default */], { onOutsideClick: this.props.onOutsideClick, className: "calendar-container" },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Head__["a" /* default */], { year: selectedYear, month: selectedMonth ? selectedMonth + 1 : undefined, onValueClick: function () { return _this.setState({ currentView: __WEBPACK_IMPORTED_MODULE_3__constants__["c" /* VIEW_YEARS */] }); }, onPrev: this.previous, onNext: this.next }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Head__["a" /* default */], { year: selectedYear, month: selectedMonth ? selectedMonth + 1 : undefined, onValueClick: function () { return _this.setState({ currentView: __WEBPACK_IMPORTED_MODULE_3__constants__["VIEW_YEARS"] }); }, onPrev: this.previous, onNext: this.next }),
             this.isYears() ? this.renderYears() : this.renderMonths()));
     };
     return MonthCalendar;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]));
 ;
-/* harmony default export */ __webpack_exports__["a"] = (MonthCalendar);
+/* harmony default export */ __webpack_exports__["default"] = (MonthCalendar);
 
 
 /***/ }),
@@ -23536,44 +23542,43 @@ var Head = /** @class */ (function (_super) {
 
 /***/ }),
 /* 196 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MONTHS_NAMES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return VIEW_YEARS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return VIEW_MONTHS; });
-var MONTHS_NAMES = [
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MONTHS_NAMES = [
     "Jan",
-    "Feb",
+    "Fev",
     "Mar",
-    "Apr",
-    "May",
+    "Abr",
+    "Maio",
     "Jun",
     "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
+    "Ago",
+    "Set",
+    "Out",
     "Nov",
-    "Dec"
+    "Dez"
 ];
-var VIEW_YEARS = 'YEARS';
-var VIEW_MONTHS = 'MONTHS';
+exports.VIEW_YEARS = 'YEARS';
+exports.VIEW_MONTHS = 'MONTHS';
 
 
 /***/ }),
 /* 197 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return valuesToMask; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return valuesFromMask; });
-var valuesToMask = function (month, year) {
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.valuesToMask = function (month, year) {
     var monthNum = month + 1;
     var monthVal = monthNum < 10 ? '0' + monthNum : monthNum;
     var yearVal = year.toString().slice(2);
     return monthVal + '/' + yearVal;
 };
-var valuesFromMask = function (mask) {
+exports.valuesFromMask = function (mask) {
     var _a = mask.split('/'), monthVal = _a[0], yearVal = _a[1];
     var rawMonth = parseInt(monthVal);
     var monthNum = rawMonth > 12 ? 12 : (rawMonth == 0 ? 1 : rawMonth);

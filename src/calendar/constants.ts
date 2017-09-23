@@ -1,16 +1,16 @@
 export const MONTHS_NAMES = [
   "Jan",
-  "Feb",
+  "Fev",
   "Mar",
-  "Apr",
-  "May",
+  "Abr",
+  "Maio",
   "Jun",
   "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
+  "Ago",
+  "Set",
+  "Out",
   "Nov",
-  "Dec"
+  "Dez"
 ];
 
 export const VIEW_YEARS = 'YEARS';

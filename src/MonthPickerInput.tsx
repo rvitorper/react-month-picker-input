@@ -110,6 +110,7 @@ class MonthPickerInput extends Component<IProps, IState> {
       ref: input => { if(input) this.input = input; },
       mask: "99/99",
       placeholder: DATE_FORMAT,
+      className: "calendar-input-field",
       type: 'text',
       onBlur: this.onInputBlur,
       onFocus: this.onInputFocus,
@@ -121,7 +122,7 @@ class MonthPickerInput extends Component<IProps, IState> {
     const { inputValue, showCalendar } = this.state;
 
     return (
-      <div ref={wrap => { if(wrap) this.wrapper = wrap; }}>
+      <div className="calendar-input-wrapper" ref={wrap => { if(wrap) this.wrapper = wrap; }}>
         <InputMask
           value={inputValue}
           {...this.inputProps()}
